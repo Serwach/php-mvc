@@ -2,8 +2,14 @@
 
 class Router
 {
-    public function __construct()
+    public function url(): array
     {
-        echo "Router class";
+        if (isset($_GET['url'])) {
+            $url = $_GET['url'];
+            $url = rtrim($url);
+            $url = filter_var($url, FILTER_SANITIZE_URL);
+            $url = explode("/", $url);
+            return $url;
+        }
     }
 }
