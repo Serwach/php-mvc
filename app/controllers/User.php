@@ -1,14 +1,15 @@
 <?php
 
-class User
+class User extends Framework
 {
     public function index()
     {
         echo "userIndex";
     }
 
-    public function print(string $param1, string $param2)
+    public function userMethod()
     {
-        echo "print " . $param1 . " " . $param2;
+        $myModel = $this->model('userModel');
+        var_dump($myModel->myData());
     }
 }
